@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Dashboard</h1>
+
+    <form method="POST">
+
+        <label>Contact Name:</label>
+
+        <input 
+        type="text" 
+        name="name"
+        placeholder="Enter contact name"
+        required>
+
+        <label>Phone:</label>
+
+        <input 
+        type="text" 
+        name="phone"
+        placeholder="Enter phone number"
+        required>
+
+        <button type="submit">Add Contact</button>
+
+    </form>
+
+    <h2 class="contact-heading">Your Contacts</h2>
+
+    <ul class="contact-list">
+
+        {% for contact in contacts %}
+
+        <li>
+            {{ contact.name }} - {{ contact.phone }}
+        </li>
+
+        {% endfor %}
+
+    </ul>
+
+    <a href="/logout" class="btn">Logout</a>
+
+</div>
+
+</body>
+
+</html>
