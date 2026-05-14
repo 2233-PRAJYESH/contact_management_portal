@@ -13,6 +13,20 @@
 <div class="container">
 
     <h1>Register</h1>
+    
+    {% with messages = get_flashed_messages() %}
+
+    {% if messages %}
+
+        {% for message in messages %}
+
+            <p class="message">{{ message }}</p>
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endwith %}
 
     <form method="POST">
 
@@ -30,6 +44,8 @@
     </form>
 
     <a href="/login" class="btn">Login</a>
+
+
 
 </div>
 

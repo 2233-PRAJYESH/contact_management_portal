@@ -70,3 +70,10 @@ button:hover{
 .btn:hover{
     background-color: darkgreen;
 }
+
+.message{
+    color:red;
+    text-align:center;
+    margin-bottom:15px;
+    font-weight:bold;
+}
