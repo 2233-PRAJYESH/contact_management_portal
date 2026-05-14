@@ -3,9 +3,12 @@ from db import get_db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import flash
 import re
+from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
 app.secret_key = "secret123"  # for sessions
+
+csrf = CSRFProtect(app)  
 
 
 # Home
