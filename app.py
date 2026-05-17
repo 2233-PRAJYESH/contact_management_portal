@@ -16,6 +16,10 @@ from services.auth_service import (
     login_user
 )
 
+from services.contact_service import (
+    add_contact,
+    fetch_contacts
+)
 app = Flask(__name__)
 
 app.secret_key = "secret123"
@@ -81,6 +85,7 @@ def login():
     return render_template("login.html")
 
 
+
 # Dashboard
 @app.route("/dashboard", methods=["GET", "POST"])
 def dashboard():
@@ -89,35 +94,29 @@ def dashboard():
 
         return redirect("/login")
 
-    db = get_db()
-    cursor = db.cursor(dictionary=True)
-
-    # Add contact
     if request.method == "POST":
 
         name = request.form.get("name")
         phone = request.form.get("phone")
 
-        cursor.execute(
-            "INSERT INTO contacts (user_id, name, phone) VALUES (%s, %s, %s)",
-            (session["user_id"], name, phone)
+        result = add_contact(
+            session["user_id"],
+            name,
+            phone
         )
 
-        db.commit()
+        if result != "success":
 
-    # Get contacts
-    cursor.execute(
-        "SELECT * FROM contacts WHERE user_id=%s",
-        (session["user_id"],)
+            flash(result)
+
+    contacts = fetch_contacts(
+        session["user_id"]
     )
-
-    contacts = cursor.fetchall()
 
     return render_template(
         "dashboard.html",
         contacts=contacts
     )
-
 
 # Logout
 @app.route("/logout")
