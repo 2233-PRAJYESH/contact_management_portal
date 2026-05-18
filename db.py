@@ -7,3 +7,5 @@ def get_db():
         password="prajju@23",
         database="contact_portal"
     )
+
+# Should move in to .env
