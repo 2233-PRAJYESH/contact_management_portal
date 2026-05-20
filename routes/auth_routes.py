@@ -65,6 +65,13 @@ def login():
         if user:
 
             session["user_id"] = user["id"]
+            session["role"] = user["role"]
+
+            #Admin redirect 
+            if user["role"] == "admin":
+
+                return redirect("/admin")
+            #normal user redirect to dashboard 
 
             return redirect("/dashboard")
 
@@ -78,5 +85,7 @@ def login():
 def logout():
 
     session.clear()
+
+    print(session)
 
     return redirect("/login")

@@ -18,7 +18,7 @@ dashboard = Blueprint("dashboard", __name__)
 @dashboard.route("/dashboard", methods=["GET", "POST"])
 def dashboard_page():
 
-    if "user_id" not in session:
+    if not session.get("user_id"):
 
         return redirect("/login")
 
@@ -45,3 +45,4 @@ def dashboard_page():
         "dashboard.html",
         contacts=contacts
     )
+
