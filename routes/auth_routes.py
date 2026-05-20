@@ -12,6 +12,8 @@ from services.auth_service import (
     login_user
 )
 
+from utils.logger import log_action
+
 auth = Blueprint("auth", __name__)
 
 
@@ -66,11 +68,17 @@ def login():
 
             session["user_id"] = user["id"]
             session["role"] = user["role"]
+            # Audit log
+        log_action(
+            f"User {user['email']} logged in"
+        )
+        
 
             #Admin redirect 
-            if user["role"] == "admin":
+            
+        if user["role"] == "admin":
 
-                return redirect("/admin")
+            return redirect("/admin")
             #normal user redirect to dashboard 
 
             return redirect("/dashboard")
@@ -83,9 +91,13 @@ def login():
 # Logout
 @auth.route("/logout")
 def logout():
+    log_action(
+    f"User with role {session.get('user_id')} logged out"
+)
 
     session.clear()
 
     print(session)
 
     return redirect("/login")
+
