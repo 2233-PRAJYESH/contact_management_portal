@@ -9,7 +9,8 @@ from flask import (
 
 from services.contact_service import (
     add_contact,
-    fetch_contacts
+    fetch_contacts,
+    remove_contact
 )
 
 dashboard = Blueprint("dashboard", __name__)
@@ -22,6 +23,7 @@ def dashboard_page():
 
         return redirect("/login")
 
+    # Add contact
     if request.method == "POST":
 
         name = request.form.get("name")
@@ -33,9 +35,16 @@ def dashboard_page():
             phone
         )
 
+        # Validation failed
         if result != "success":
 
             flash(result)
+
+            return redirect("/dashboard")
+
+        flash("Contact added successfully")
+
+        return redirect("/dashboard")
 
     contacts = fetch_contacts(
         session["user_id"]
@@ -45,4 +54,19 @@ def dashboard_page():
         "dashboard.html",
         contacts=contacts
     )
+    
+@dashboard.route("/delete-contact/<int:contact_id>")
+def delete_contact_route(contact_id):
 
+    if not session.get("user_id"):
+
+        return redirect("/login")
+
+    remove_contact(
+        contact_id,
+        session["user_id"]
+    )
+
+    flash("Contact deleted successfully")
+
+    return redirect("/dashboard")

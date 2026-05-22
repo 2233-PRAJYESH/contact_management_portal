@@ -5,58 +5,76 @@
 
     <title>Dashboard</title>
 
-    <link rel="stylesheet"
-    href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <h1>Dashboard</h1>
+        <h1>Dashboard</h1>
+        {% with messages = get_flashed_messages() %}
 
-    <form method="POST">
+        {% if messages %}
 
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        {% for message in messages %}
 
-        <label>Contact Name:</label>
-
-        <input 
-        type="text" 
-        name="name"
-        placeholder="Enter contact name"
-        required>
-
-        <label>Phone:</label>
-
-        <input 
-        type="text" 
-        name="phone"
-        placeholder="Enter phone number"
-        required>
-
-        <button type="submit">Add Contact</button>
-
-    </form>
-
-    <h2 class="contact-heading">Your Contacts</h2>
-
-    <ul class="contact-list">
-
-        {% for contact in contacts %}
-
-        <li>
-            {{ contact.name }} - {{ contact.phone }}
-        </li>
+        <p class="flash-message">
+            {{ message }}
+        </p>
 
         {% endfor %}
 
-    </ul>
+        {% endif %}
 
-    <a href="/logout" class="btn">Logout</a>
+        {% endwith %}
 
-</div>
+        <form method="POST">
+
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+            <label>Contact Name:</label>
+
+            <input type="text" name="name" placeholder="Enter contact name" required>
+
+            <label>Phone:</label>
+
+            <input type="text" name="phone" placeholder="Enter phone number" required>
+
+            <button type="submit">Add Contact</button>
+
+        </form>
+
+        <h2 class="contact-heading">Your Contacts</h2>
+
+        <ul class="contact-list">
+
+            {% for contact in contacts %}
+
+            <li class="contact-item">
+            <span>
+                {{ contact.name }} - {{ contact.phone }}
+
+            </span>
+                
+
+                <a href="/delete-contact/{{ contact.id }}" class="delete-btn">
+
+                    Delete
+
+                </a>
+
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+        <a href="/logout" class="btn">Logout</a>
+
+    </div>
 
 </body>
 

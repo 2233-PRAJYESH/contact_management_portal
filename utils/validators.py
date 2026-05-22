@@ -8,6 +8,36 @@ def is_valid_email(email):
     return re.match(email_pattern, email)
 
 
+
+
+
+
+
 def is_strong_password(password):
 
-    return len(password) >= 6
+    # Minimum 8 chars
+    if len(password) < 8:
+
+        return False
+
+    # Uppercase letter
+    if not re.search(r"[A-Z]", password):
+
+        return False
+
+    # Lowercase letter
+    if not re.search(r"[a-z]", password):
+
+        return False
+
+    # Number
+    if not re.search(r"[0-9]", password):
+
+        return False
+
+    # Special character
+    if not re.search(r"[!@#$%^&*(),.?\":{}|<>]", password):
+
+        return False
+
+    return True
