@@ -13,7 +13,7 @@ def add_contact(user_id, name, phone):
 
         return "All fields are required"
 
-    # Phone must contain only digits
+    # Phone number must contain only digits
     if not phone.isdigit():
 
         return "Phone number must contain only digits"

@@ -2,7 +2,7 @@
 
 A secure Contact Management Portal built using Flask and MySQL with authentication, role-based access control, layered architecture, CSRF protection, validation, and audit logging.
 
----
+
 
 # Features
 
@@ -33,7 +33,7 @@ A secure Contact Management Portal built using Flask and MySQL with authenticati
 - View All Contacts
 - Role-Based Access Control (RBAC)
 
----
+
 
 # Project Structure
 
@@ -76,7 +76,7 @@ Project/
 └── README.md
 ```
 
----
+
 
 # Technologies Used
 
@@ -87,7 +87,7 @@ Project/
 - HTML
 - CSS
 
----
+
 
 # Setup Instructions
 
@@ -98,27 +98,12 @@ git clone <repository-url>
 
 
 
-## 2. Create Virtual Environment
 
-python -m venv venv
-
-
-Activate environment:
-
-### Windows
-
-venv\Scripts\activate
-
-
----
 
 ## 3. Install Dependencies
 
 
-pip install flask
-pip install flask-wtf
-pip install mysql-connector-python
-pip install python-dotenv
+- Present in the Requirements.txt file can run the while cloning the repo → pip install -r requirements.txt
 
 
 
