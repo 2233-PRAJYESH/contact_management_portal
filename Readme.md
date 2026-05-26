@@ -167,10 +167,10 @@ CREATE TABLE contacts (
 - Google OAuth Login
 - Edit Contact Feature
 - Pagination
-- Search Functionality
-- Profile Management
-- Deployment using Docker
-- REST API Integration
+
+
+
+
 
 
 
