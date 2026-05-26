@@ -128,19 +128,21 @@ python app.py
 # Database Tables
 
 ## Users Table
-
-CREATE TABLE users (
+"""
+- CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
     email VARCHAR(100) UNIQUE,
     password VARCHAR(255),
     role VARCHAR(20) DEFAULT 'user'
     
-);
+); 
+
+"""
 
 
 ## Contacts Table
-
+"""
 CREATE TABLE contacts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
@@ -148,7 +150,7 @@ CREATE TABLE contacts (
     phone VARCHAR(20),
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
-
+"""
 # Security Implementations
 
 - Passwords stored as hashed values
