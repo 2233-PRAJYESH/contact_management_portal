@@ -41,7 +41,8 @@ A secure Contact Management Portal built using Flask and MySQL with authenticati
 Project/
 │
 ├── repositories/
-│   ├── auth_repository.py
+│   ├── admin_repository.py
+    └──   auth_repository.py
 │   └── contact_repository.py
 │
 ├── routes/
@@ -50,7 +51,8 @@ Project/
 │   └── admin_routes.py
 │
 ├── services/
-│   ├── auth_service.py
+│   ├── admin_service.py
+    └── auth_service.py
 │   └── contact_service.py
 │
 ├── static/
