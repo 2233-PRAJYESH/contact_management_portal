@@ -1,61 +1,61 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Login</title>
 
-    <link rel="stylesheet"
-    href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <h1>Login</h1>
-    
-    {% with messages = get_flashed_messages() %}
+        <h1>Login</h1>
 
-    {% if messages %}
+        {% with messages = get_flashed_messages() %}
+
+        {% if messages %}
 
         {% for message in messages %}
 
-            <p class="message">{{ message }}</p>
+        <p class="message">{{ message }}</p>
 
         {% endfor %}
 
-    {% endif %}
+        {% endif %}
 
-{% endwith %}
+        {% endwith %}
 
-    <form method="POST">
+        <form method="POST">
 
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
-        <label>Email:</label>
+            <label>Email:</label>
 
-        <input 
-        type="email" 
-        name="email"
-        placeholder="Enter your email"
-        required>
+            <input type="email" name="email" placeholder="Enter your email" required>
 
-        <label>Password:</label>
+            <label>Password:</label>
 
-        <input 
-        type="password" 
-        name="password"
-        placeholder="Enter your password"
-        required>
+            <input type="password" name="password" placeholder="Enter your password" required>
 
-        <button type="submit">Login</button>
+            <button type="submit">Login</button>
+            <a href="/google-login" class="google-btn">
 
-    </form>
+                <img src="https://developers.google.com/identity/images/g-logo.png" width="20">
 
-    <a href="/register" class="btn">Register</a>
+                Continue with Google
+
+            </a>
+
+        </form>
+
+        <a href="/register" class="btn">Register</a>
 
 
-</div>
+    </div>
 
 </body>
+
 </html>

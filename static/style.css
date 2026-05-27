@@ -190,3 +190,59 @@ table tr:hover{
 
     padding: 0;
 }
+
+.google-btn{
+
+    display: block;
+
+    background-color: #db4437;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 12px;
+
+    border-radius: 5px;
+
+    text-decoration: none;
+
+    margin-top: 10px;
+
+    font-weight: bold;
+}
+
+
+.google-btn{
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    background-color:#d66748;
+
+    color: white;
+
+    border: 1px solid #ddd;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    margin-top: 15px;
+
+    transition: 0.3s ease;
+
+    box-sizing: border-box;
+}
+
+

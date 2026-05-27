@@ -2,8 +2,12 @@ from flask import (
     Blueprint,
     session,
     redirect,
-    render_template
+    render_template,
+    flash
 )
+from services.admin_service import remove_user
+
+
 
 from db import get_db
 
@@ -52,3 +56,17 @@ def admin_dashboard():
         users=users,
         contacts=contacts
     )
+    
+@admin.route("/delete-user/<int:user_id>")
+def delete_user_route(user_id):
+
+    # Only admin allowed
+    if session.get("role") != "admin":
+
+        return redirect("/login")
+
+    remove_user(user_id)
+
+    flash("User deleted successfully")
+
+    return redirect("/admin")

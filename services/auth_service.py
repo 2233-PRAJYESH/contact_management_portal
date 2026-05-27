@@ -5,13 +5,16 @@ from werkzeug.security import (
 
 from repositories.auth_repository import (
     get_user_by_email,
-    create_user
+    create_user,
+    create_google_user
 )
 
 from utils.validators import (
     is_valid_email,
     is_strong_password
 )
+
+
 
 
 # Register user
@@ -68,5 +71,25 @@ def login_user(email, password):
     ):
 
         return None
+    return user
+    
+def google_login_user(name, email):
+
+    # Check if user already exists
+    user = get_user_by_email(email)
+
+    # If user not found
+    if not user:
+
+        # Create Google user
+        create_google_user(
+            name,
+            email
+        )
+
+        # Fetch newly created user
+        user = get_user_by_email(email)
 
     return user
+
+    

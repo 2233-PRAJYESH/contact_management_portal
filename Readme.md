@@ -103,7 +103,7 @@ git clone <repository-url>
 ## 3. Install Dependencies
 
 
-- Present in the Requirements.txt file can run the while cloning the repo → pip install -r requirements.txt
+- In the Requirements.txt file can run the while cloning the repo → pip install -r requirements.txt
 
 
 

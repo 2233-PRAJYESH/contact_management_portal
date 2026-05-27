@@ -2,20 +2,37 @@ from flask import Flask
 
 from flask_wtf.csrf import CSRFProtect
 
-from routes.auth_routes import auth
-from routes.dashboard_routes import dashboard
-
-from routes.admin_routes import admin
-
 import os
+
 from dotenv import load_dotenv
+
+from oauth_config import oauth, google
+
+
 load_dotenv()
 
 app = Flask(__name__)
 
-app.secret_key = os.getenv("SECRET_KEY") #Should move in to env 
+app.secret_key = os.getenv("SECRET_KEY")
 
 csrf = CSRFProtect(app)
+
+# Initialize OAuth
+oauth.init_app(app)
+
+# Google credentials
+google.client_id = os.getenv(
+    "GOOGLE_CLIENT_ID"
+)
+
+google.client_secret = os.getenv(
+    "GOOGLE_CLIENT_SECRET"
+)
+
+# IMPORT ROUTES AFTER APP + OAUTH SETUP
+from routes.auth_routes import auth
+from routes.dashboard_routes import dashboard
+from routes.admin_routes import admin
 
 # Register blueprints
 app.register_blueprint(auth)

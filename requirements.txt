@@ -3,3 +3,4 @@ Flask-WTF
 mysql-connector-python
 python-dotenv
 Werkzeug
+authlib
