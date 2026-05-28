@@ -20,7 +20,7 @@ csrf = CSRFProtect(app)
 # Initialize OAuth
 oauth.init_app(app)
 
-# Google credentials
+# Google credentials from the cloud console
 google.client_id = os.getenv(
     "GOOGLE_CLIENT_ID"
 )
