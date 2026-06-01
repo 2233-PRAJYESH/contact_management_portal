@@ -29,7 +29,7 @@ google.client_secret = os.getenv(
     "GOOGLE_CLIENT_SECRET"
 )
 
-# IMPORT ROUTES & OAUTH SETUP
+# import routes & O AUTH setup 
 from routes.auth_routes import auth
 from routes.dashboard_routes import dashboard
 from routes.admin_routes import admin
