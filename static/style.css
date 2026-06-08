@@ -124,7 +124,7 @@ table tr:hover{
 .flash-message{
 
     background-color: #ffdddd;
-    color: #d8000c;
+    color: #bd4148;
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 5px;
@@ -183,7 +183,7 @@ table tr:hover{
 
 .delete-btn:hover{
 
-    background-color: darkred;
+    background-color: rgba(139, 0, 0, 0.552);
 }
 
 .contact-list{
