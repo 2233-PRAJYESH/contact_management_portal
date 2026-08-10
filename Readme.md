@@ -101,7 +101,12 @@ git clone <repository-url>
 
 
 
+## 2. Run with Docker Compose
 
+After cloning the repository, start the application using:
+
+```bash
+docker compose up --build
 
 ## 3. Install Dependencies
 
