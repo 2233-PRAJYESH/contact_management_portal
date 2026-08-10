@@ -1,0 +1,50 @@
+services:
+
+  app:
+    build:
+      context: .
+
+    container_name: contact-portal
+    restart: unless-stopped
+
+    ports:
+      - "5000:5000"
+
+    environment:
+      DB_HOST: mysql
+      DB_USER: root
+      DB_PASSWORD: root123
+      DB_NAME: contact_portal
+
+    depends_on:
+      - mysql
+
+    volumes:
+      - .:/app
+
+    networks:
+      - contact-network
+
+  mysql:
+    image: mysql:8.0
+    container_name: contact-mysql
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: contact_portal
+
+    ports:
+      - "3308:3306"
+
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+    networks:
+      - contact-network
+
+volumes:
+  mysql-data:
+
+networks:
+  contact-network:
