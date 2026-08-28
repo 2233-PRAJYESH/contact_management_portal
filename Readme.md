@@ -1,6 +1,6 @@
 # Contact Management Portal
 
-A secure Contact Management Portal built using Flask and MySQL with authentication, role-based access control, layered architecture, CSRF protection, validation, and audit logging.
+A secure Contact Management Portal built using Flask and MySQL with authentication, role-based access control, layered architecture, CSRF protection, validation and audit logging.
 
 
 
