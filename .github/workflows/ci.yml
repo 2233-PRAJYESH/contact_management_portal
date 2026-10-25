@@ -11,3 +11,10 @@
 
 - name: Run Pylint
   run: pylint $(git ls-files '*.py')
+
+- name: Debug Python dependencies
+  run: |
+    python --version
+    python -m pip show Flask Flask-WTF python-dotenv
+    python -c "import flask, flask_wtf, dotenv; print('Imports successful')"
+    python -m pylint --version
