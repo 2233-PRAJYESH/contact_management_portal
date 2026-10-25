@@ -32,7 +32,7 @@ jobs:
       - name: Check Python imports
         run: |
           python -m pip show Flask Flask-WTF python-dotenv
-          python -c "import flask, flask_wtf, dotenv; print('Imports successful')"
+          python -c "import flask, flask_wtf, dotenv, mysql.connector,authlib; print('Imports successful')"
 
       - name: Analyse code with Pylint
         run: python -m pylint $(git ls-files '*.py')
