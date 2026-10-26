@@ -24,7 +24,7 @@ from oauth_config import google
 
 auth = Blueprint("auth", __name__)
 
-#Google login OAuth 
+#Google login OAuth
 @auth.route("/google-login")
 def google_login():
 
@@ -37,7 +37,7 @@ def google_login():
         redirect_uri
     )
 
-# Callback route 
+# Callback route
 @auth.route("/google/callback")
 def google_callback():
 

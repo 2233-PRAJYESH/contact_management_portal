@@ -54,7 +54,7 @@ def dashboard_page():
         "dashboard.html",
         contacts=contacts
     )
-    
+
 @dashboard.route("/delete-contact/<int:contact_id>")
 def delete_contact_route(contact_id):
 

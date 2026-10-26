@@ -72,7 +72,7 @@ def login_user(email, password):
 
         return None
     return user
-    
+
 def google_login_user(name, email):
 
     # Check if user already exists
@@ -91,5 +91,3 @@ def google_login_user(name, email):
         user = get_user_by_email(email)
 
     return user
-
-    

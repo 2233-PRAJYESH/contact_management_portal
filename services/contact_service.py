@@ -18,7 +18,7 @@ def add_contact(user_id, name, phone):
 
         return "Phone number must contain only digits"
 
-    # Phone number length must be 10 digits 
+    # Phone number length must be 10 digits
     if len(phone) != 10:
 
         return "Phone number must be  10 digits only"

@@ -56,7 +56,7 @@ def admin_dashboard():
         users=users,
         contacts=contacts
     )
-    
+
 @admin.route("/delete-user/<int:user_id>")
 def delete_user_route(user_id):
 

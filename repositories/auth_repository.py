@@ -25,7 +25,7 @@ def create_user(name, email, password):
     )
 
     db.commit()
-    
+
 def create_google_user(name, email):
 
     db = get_db()
