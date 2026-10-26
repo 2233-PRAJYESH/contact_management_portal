@@ -1,3 +1,5 @@
+"""Main application setup and route registration."""
+
 from flask import Flask
 
 from flask_wtf.csrf import CSRFProtect
