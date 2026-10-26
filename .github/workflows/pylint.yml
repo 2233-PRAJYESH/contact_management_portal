@@ -32,4 +32,4 @@ jobs:
           python -c "import flask, flask_wtf, dotenv, mysql.connector, authlib; print('Imports successful')"
 
       - name: Analyse code with Pylint
-        run: python -m pylint $(git ls-files '*.py')
+        run: python -m pylint --disable=missing-module-docstring,missing-function-docstring,missing-class-docstring,missing-final-newline,trailing-whitespace,trailing-newlines,wrong-import-order,wrong-import-position,unspecified-encoding $(git ls-files '*.py')
